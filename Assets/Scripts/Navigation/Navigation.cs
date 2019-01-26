@@ -20,9 +20,6 @@ public class Navigation : MonoBehaviour
 		public float h = -1;
 	}
 
-	public Tilemap walkableTileMap;
-	public Tilemap nonWalkableTileMap;
-
 	public Transform fromTransform;
 	public Transform toTransform;
 
@@ -33,6 +30,8 @@ public class Navigation : MonoBehaviour
 
 	List<Node> tempNeighbours = new List<Node>();
 
+	TileGrid tileGrid;
+
 	[ContextMenu("Do nav")]
 	void DoNavigation()
 	{
@@ -41,14 +40,15 @@ public class Navigation : MonoBehaviour
 
 	public List<Vector3> GetPath(Vector3 from, Vector3 to)
 	{
+		tileGrid = FindObjectOfType<TileGrid>();
 		open.Clear();
 		nodes.Clear();
 
-		var beginCell = walkableTileMap.WorldToCell(from);
-		var endCell = walkableTileMap.WorldToCell(to);
+		var beginCell = tileGrid.walkableTileMap.WorldToCell(from);
+		var endCell = tileGrid.walkableTileMap.WorldToCell(to);
 
-		if(walkableTileMap.GetTile(beginCell) == null) return null;
-		if(walkableTileMap.GetTile(endCell) == null) return null;
+		if(tileGrid.walkableTileMap.GetTile(beginCell) == null) return null;
+		if(tileGrid.walkableTileMap.GetTile(endCell) == null) return null;
 
 		start = GetNode(beginCell);
 		end = GetNode(endCell);
@@ -56,7 +56,7 @@ public class Navigation : MonoBehaviour
 		AstarSearch(start);
 
 		var path = new List<Vector3>();
-		path.Add(walkableTileMap.CellToWorld(end.pos));
+		path.Add(tileGrid.walkableTileMap.CellToWorld(end.pos));
 		BuildShortestPath(path, end);
 		path.RemoveAt(path.Count - 1); // remove first cell
 		path.Reverse();
@@ -71,7 +71,7 @@ public class Navigation : MonoBehaviour
 		{
 			if (node.nearestToStart == null) return;
 
-			list.Add(walkableTileMap.CellToWorld(node.nearestToStart.pos));
+			list.Add(tileGrid.walkableTileMap.CellToWorld(node.nearestToStart.pos));
 			node = node.nearestToStart;
 		}
 		if(maxLoops <= 0) Debug.LogError("Hit max in building the shortest path in A*");
@@ -142,8 +142,8 @@ public class Navigation : MonoBehaviour
 
 	Node GetNode(Vector3Int pos)
 	{
-		if(walkableTileMap.GetTile(pos) == null) return null;
-		if(nonWalkableTileMap.GetTile(pos) != null) return null;
+		if(tileGrid.walkableTileMap.GetTile(pos) == null) return null;
+		if(tileGrid.nonWalkableTileMap.GetTile(pos) != null) return null;
 
 		Node node;
 		if(!nodes.TryGetValue(pos, out node))

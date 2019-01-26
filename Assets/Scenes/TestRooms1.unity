@@ -1216,7 +1216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eae3e2355246450c98c103510dbad92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorTileMap: {fileID: 879469138}
+  walkableTileMap: {fileID: 879469138}
+  nonWalkableTileMap: {fileID: 598743538}
 --- !u!1 &879469135
 GameObject:
   m_ObjectHideFlags: 0
@@ -5537,8 +5538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1149f95488fa4857bbd880090c6a116e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkableTileMap: {fileID: 879469138}
-  nonWalkableTileMap: {fileID: 598743538}
   fromTransform: {fileID: 0}
   toTransform: {fileID: 0}
 --- !u!4 &2011105275
