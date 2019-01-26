@@ -24,7 +24,6 @@ public sealed class SimulateTickRate : MonoBehaviour
 			_actualTicks -= ticks;
 			for (int i = _actualTickCount; i < _actualTickCount + ticks; i++)
 			{
-				Debug.Log("tick");
 				_onTickUpdate?.Invoke(i);
 			}
 
