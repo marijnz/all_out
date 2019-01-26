@@ -7,7 +7,7 @@ public sealed class IntEvent : UnityEvent<int> { }
 
 public sealed class SimulateTickRate : MonoBehaviour
 {
-	[SerializeField] private int _ticksPerSecond = 10;
+	[SerializeField] private int _ticksPerSecond = 60;
 	[SerializeField] private IntEvent _onTickUpdate = null;
 	public IntEvent OnTickUpdate { get { return _onTickUpdate; } }
 

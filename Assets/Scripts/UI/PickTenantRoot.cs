@@ -11,6 +11,23 @@ public class GeneratedTenant
     public TenantData.TenantItem data;
 }
 
+public class TenantEvaluator : MonoBehaviour
+{
+    public List<GeneratedTenant> allTenants = new List<GeneratedTenant>();
+
+   // public int tickInterval =
+
+    void Start()
+    {
+        FindObjectOfType<SimulateTickRate>().OnTickUpdate.AddListener(OnTick);
+    }
+
+    void OnTick(int tick)
+    {
+
+    }
+}
+
 
 public class PickTenantRoot : MonoBehaviour
 {
@@ -38,8 +55,9 @@ public class PickTenantRoot : MonoBehaviour
         }
     }
 
-    void CloseScene()
+    IEnumerator CloseScene()
     {
+        yield return new WaitForSeconds(.3f);
         container.DOFade(0, .3f).OnComplete(() =>
         {
             SceneManager.UnloadSceneAsync(sceneName);
@@ -54,6 +72,7 @@ public class PickTenantRoot : MonoBehaviour
 
     void Start()
     {
+        int count = 0;
         for (int i = 0; i < amountOfTenantsToPick; i++)
         {
             var instance = Instantiate(template, tennantsContainer.transform, false);
@@ -62,8 +81,23 @@ public class PickTenantRoot : MonoBehaviour
             instance.Init(generatedTenant);
             instance.button.onClick += () =>
             {
-                result = generatedTenant;
-                CloseScene();
+                if(!instance.selected)
+                {
+                    instance.transform.DOScale(Vector3.one * 1.1f, .3f).SetEase(Ease.OutBack);
+                    instance.selected = true;
+                    count++;
+                }
+                else
+                {
+                    instance.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutSine);
+                    instance.selected = false;
+                    count--;
+                }
+                if(count == 3)
+                {
+                    result = generatedTenant;
+                    StartCoroutine(CloseScene());
+                }
             };
         }
 

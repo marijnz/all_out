@@ -10,6 +10,7 @@ public class TenantElement : MonoBehaviour
 	public TextMeshProUGUI trait2Label;
 	public Image image;
 	public PointerEventHandler button;
+	public bool selected = false;
 
 	public void Init(GeneratedTenant tenant)
 	{

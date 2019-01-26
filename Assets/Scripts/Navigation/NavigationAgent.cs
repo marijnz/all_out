@@ -5,7 +5,7 @@ public class NavigationAgent : MonoBehaviour
 {
 	public Transform to;
 
-	public float speed = 2;
+	public float speed = 0.2f;
 
 	List<Vector3> path = null;
 	int pathIndex = 0;

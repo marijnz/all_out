@@ -10,5 +10,10 @@ public class Setup : MonoBehaviour
         yield return PickTenantRoot.Show();
 
         Debug.Log("Picked a : " + PickTenantRoot.result.data.animalName);
+
+        // while no new tenant needed
+
+
+        // on
     }
 }

@@ -478,7 +478,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Pick a tenant..
+  m_text: Pick 3 tenants..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6635d106baa844f1681294913ceb732d, type: 2}
   m_sharedMaterial: {fileID: 21294438115813636, guid: 6635d106baa844f1681294913ceb732d,
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 586860188}
-    characterCount: 15
+    characterCount: 16
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -762,7 +762,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 20
+  m_Spacing: 40
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1354,6 +1354,7 @@ MonoBehaviour:
   trait2Label: {fileID: 1555783494}
   image: {fileID: 860244506}
   button: {fileID: 1951373805}
+  selected: 0
 --- !u!1 &2137079667
 GameObject:
   m_ObjectHideFlags: 0
