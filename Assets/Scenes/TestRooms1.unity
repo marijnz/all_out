@@ -5440,7 +5440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe2c2c7a597fbf4ba9b0d650bb645c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tenantPrefab: {fileID: 0}
+  tenantPrefab: {fileID: 5676900499596470845, guid: 561f33e4adfc24c94a38cd1750b0fba1,
+    type: 3}
   spawnPoints:
   - {fileID: 538005304}
   - {fileID: 284502113}
