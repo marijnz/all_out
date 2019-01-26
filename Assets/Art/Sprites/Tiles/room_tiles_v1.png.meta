@@ -1,0 +1,477 @@
+fileFormatVersion: 2
+guid: 73d3660192136444e95edd96bc06686a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: room_tiles_v1_0
+    21300002: room_tiles_v1_1
+    21300004: room_tiles_v1_2
+    21300006: room_tiles_v1_3
+    21300008: room_tiles_v1_4
+    21300010: room_tiles_v1_5
+    21300012: room_tiles_v1_6
+    21300014: room_tiles_v1_7
+    21300016: room_tiles_v1_8
+    21300018: room_tiles_v1_9
+    21300020: room_tiles_v1_10
+    21300022: room_tiles_v1_11
+    21300024: room_tiles_v1_12
+    21300026: room_tiles_v1_13
+    21300028: room_tiles_v1_14
+    21300030: room_tiles_v1_15
+    21300032: room_tiles_v1_16
+    21300034: room_tiles_v1_17
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 320
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: room_tiles_v1_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 2099
+        width: 323
+        height: 323
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.7246517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe5bec8b6d72fb4aa32a7617d65424f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_1
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 2099
+        width: 322
+        height: 323
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.7246517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e6b7c1e221fbc43ae420c74dd68c1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 2099
+        width: 323
+        height: 323
+      alignment: 9
+      pivot: {x: 0.48595926, y: 0.7246517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1955db99b8f82b442883a925ddb2f417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_3
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 2099
+        width: 323
+        height: 323
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73869246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1efd6621e4695549b3e0a00977e51bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_4
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 2099
+        width: 322
+        height: 323
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7527332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae62fc344f6855748b51104ac4ecc818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_5
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 2099
+        width: 323
+        height: 323
+      alignment: 9
+      pivot: {x: 0.48596004, y: 0.73869246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2ae90072c046b42b00db8d9acbcb2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_6
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1059
+        width: 323
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a9672314402464b8231d68102e2b9b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_7
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1059
+        width: 322
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3377a9221ca95241a4b82e3a69fbcc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_8
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1059
+        width: 323
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2da3428e10f114d9d8b541126743ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_9
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 1059
+        width: 323
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a47e39ca71c5a4cba3b55b5f610836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_10
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 1059
+        width: 322
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43405b872e4854499e80e903adb71cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_11
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 1059
+        width: 323
+        height: 1003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be503658d81f6645be8029bb563c87a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_12
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 18
+        width: 323
+        height: 1004
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b12bfb8ad605c4aa082df6db23b756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_13
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 18
+        width: 322
+        height: 1004
+      alignment: 9
+      pivot: {x: 0.48591584, y: 0.26059464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6239907472644df4ca29a193348d92d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_14
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 18
+        width: 323
+        height: 1004
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2731b2034fcb74b98ffa0bd3d6d0a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_15
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 18
+        width: 323
+        height: 1004
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded6e9bcbf79c914ca7dab082e1d4d9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_16
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 18
+        width: 322
+        height: 1004
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44ccfe00e6384144bc17fcf13a8ad48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_tiles_v1_17
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 18
+        width: 323
+        height: 1004
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476efd0254a0edb45bf6da225e9e66d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9ecac9cca0990fd45a6d5089949f5a14
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
