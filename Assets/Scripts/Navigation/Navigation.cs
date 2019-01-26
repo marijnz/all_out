@@ -46,7 +46,7 @@ public class Navigation : MonoBehaviour
 		var endCell = tileMap.WorldToCell(to);
 
 		if(tileMap.GetTile(beginCell) == null) Debug.LogError("From is not on navigation!");
-		if(tileMap.GetTile(endCell) == null) Debug.LogError("From is not on navigation!");
+		if(tileMap.GetTile(endCell) == null) Debug.LogError("To is not on navigation!");
 
 		start = GetNode(beginCell);
 		end = GetNode(endCell);
@@ -77,7 +77,7 @@ public class Navigation : MonoBehaviour
 
 	void AstarSearch(Node start)
 	{
-		int maxCount = 100;
+		int maxCount = 1000;
 		int nodeVisits = 0;
 
 		start.g = 0;
@@ -94,8 +94,6 @@ public class Navigation : MonoBehaviour
 			foreach (var neighbour in tempNeighbours)
 			{
 				if(neighbour == null) continue;
-
-				Debug.Log(neighbour.pos);
 
 				var cost = node.g +  Vector3.Distance(node.pos, neighbour.pos);
 
@@ -152,7 +150,6 @@ public class Navigation : MonoBehaviour
 				pos = pos
 			};
 			nodes[pos] = node;
-			Debug.LogWarning("got node");
 		}
 		return node;
 	}
