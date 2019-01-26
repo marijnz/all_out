@@ -45,8 +45,8 @@ public class Navigation : MonoBehaviour
 		var beginCell = tileMap.WorldToCell(from);
 		var endCell = tileMap.WorldToCell(to);
 
-		if(tileMap.GetTile(beginCell) == null) Debug.LogError("From is not on navigation!");
-		if(tileMap.GetTile(endCell) == null) Debug.LogError("To is not on navigation!");
+		if(tileMap.GetTile(beginCell) == null) return null;
+		if(tileMap.GetTile(endCell) == null) return null;
 
 		start = GetNode(beginCell);
 		end = GetNode(endCell);

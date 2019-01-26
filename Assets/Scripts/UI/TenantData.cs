@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TenantData : ScriptableObject
 {
@@ -17,6 +18,7 @@ public class TenantData : ScriptableObject
 	public class TenantItem
 	{
 		public string animalName;
+		public Sprite previewImage;
 		public Sprite image;
 	}
 }

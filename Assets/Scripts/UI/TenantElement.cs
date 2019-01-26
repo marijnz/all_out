@@ -15,7 +15,7 @@ public class TenantElement : MonoBehaviour
 	public void Init(GeneratedTenant tenant)
 	{
 		nameLabel.text = tenant.data.animalName;
-		image.sprite = tenant.data.image;
+		image.sprite = tenant.data.previewImage;
 
 		trait1Label.text = tenant.traits[0].name;
 		trait2Label.text = tenant.traits[1].name;

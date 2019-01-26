@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public sealed class RandomWalk : AWalk
 {
-	[SerializeField] private Tilemap _tilemap = null;
+	private Tilemap _tilemap = null;
 	private Vector3[] _tilePositions = null;
 
 	[SerializeField] private int _ticksToWait = 0;
@@ -14,6 +14,8 @@ public sealed class RandomWalk : AWalk
 	override protected void Start()
 	{
 		base.Start();
+
+		_tilemap = FindObjectOfType<TileGrid>().floorTileMap;
 
 		List<Vector3> positions = new List<Vector3>();
 		foreach (Vector3Int position in _tilemap.cellBounds.allPositionsWithin)

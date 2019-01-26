@@ -31,9 +31,10 @@ public class TenantEvaluator : MonoBehaviour
 
 public class PickTenantRoot : MonoBehaviour
 {
-    public static GeneratedTenant result;
+    public static List<GeneratedTenant> results = new List<GeneratedTenant>();
 
-    const int amountOfTenantsToPick = 4;
+    const int amountOfTenantsAvailable = 4;
+    const int amountOfTenantsToPick = 3;
     const string sceneName = "PickTenant";
 
     public TenantData tenantData;
@@ -46,10 +47,15 @@ public class PickTenantRoot : MonoBehaviour
 
     TenantData.TenantItem chosenItem;
 
+    static bool done;
+
     public static IEnumerator Show()
     {
+        results.Clear();
+        done = false;
+
         SceneManager.LoadScene("PickTenant", LoadSceneMode.Additive);
-        while(result == null)
+        while(!done)
         {
             yield return null;
         }
@@ -61,6 +67,7 @@ public class PickTenantRoot : MonoBehaviour
         container.DOFade(0, .3f).OnComplete(() =>
         {
             SceneManager.UnloadSceneAsync(sceneName);
+            done = true;
         });
     }
 
@@ -73,7 +80,7 @@ public class PickTenantRoot : MonoBehaviour
     void Start()
     {
         int count = 0;
-        for (int i = 0; i < amountOfTenantsToPick; i++)
+        for (int i = 0; i < amountOfTenantsAvailable; i++)
         {
             var instance = Instantiate(template, tennantsContainer.transform, false);
             var data = tenantData.potentialTenants.Random();
@@ -85,17 +92,18 @@ public class PickTenantRoot : MonoBehaviour
                 {
                     instance.transform.DOScale(Vector3.one * 1.1f, .3f).SetEase(Ease.OutBack);
                     instance.selected = true;
+                    results.Add(generatedTenant);
                     count++;
                 }
                 else
                 {
                     instance.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutSine);
                     instance.selected = false;
+                    results.Remove(generatedTenant);
                     count--;
                 }
-                if(count == 3)
+                if(count == amountOfTenantsToPick)
                 {
-                    result = generatedTenant;
                     StartCoroutine(CloseScene());
                 }
             };
