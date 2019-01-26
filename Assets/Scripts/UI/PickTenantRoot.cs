@@ -98,6 +98,7 @@ public class PickTenantRoot : MonoBehaviour
                         instance.selected = true;
                         results.Add(generatedTenant);
                         count++;
+                        AudioSource.PlayClipAtPoint(data.audioClip, Vector3.zero);
                     }
                     else
                     {
