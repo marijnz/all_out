@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,7 @@ public class PickTenantRoot : MonoBehaviour
 
     public TenantData tenantData;
     public TenantGenerator tenantGenerator;
+    public CanvasGroup container;
     public GameObject tennantsContainer;
     public TenantElement template;
 
@@ -36,9 +38,18 @@ public class PickTenantRoot : MonoBehaviour
         }
     }
 
-    static void CloseScene()
+    void CloseScene()
     {
-        SceneManager.UnloadSceneAsync(sceneName);
+        container.DOFade(0, .3f).OnComplete(() =>
+        {
+            SceneManager.UnloadSceneAsync(sceneName);
+        });
+    }
+
+    void Awake()
+    {
+        container.alpha = 0;
+        container.DOFade(1, .3f);
     }
 
     void Start()
