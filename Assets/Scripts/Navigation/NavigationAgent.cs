@@ -40,6 +40,12 @@ public class NavigationAgent : MonoBehaviour
 		path = _navigation.GetPath(transform.position, to);
 	}
 
+	public void Stop()
+	{
+		path = null;
+		pathIndex = 0;
+	}
+
 	void OnTickUpdate(int tick)
 	{
 		if (path != null && path.Count > 0)
