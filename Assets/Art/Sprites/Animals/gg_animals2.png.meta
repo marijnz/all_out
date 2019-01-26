@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: f4d615fb6d2dd46e3bdce567264b9ab1
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: gg_animals2_0
+    21300002: gg_animals2_1
+    21300004: gg_animals2_2
+    21300006: gg_animals2_3
+    21300008: gg_animals2_4
+    21300010: gg_animals2_5
+    21300012: gg_animals2_6
+    21300014: gg_animals2_7
+    21300016: gg_animals2_8
+    21300018: gg_animals2_9
+    21300020: gg_animals2_10
+    21300022: gg_animals2_11
+    21300024: gg_animals2_12
+    21300026: gg_animals2_13
+    21300028: gg_animals2_14
+    21300030: gg_animals2_15
+    21300032: gg_animals2_16
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gg_animals2_0
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 3017
+        width: 736
+        height: 1866
+      alignment: 9
+      pivot: {x: 0.57755315, y: 0.11763693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 025c78dced5ed4875bd89f6fc4a4f7a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_1
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 2946
+        width: 735
+        height: 1868
+      alignment: 9
+      pivot: {x: 0.396455, y: 0.12823185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8121a8c202d1246f0b3bd4f26397b6c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_2
+      rect:
+        serializedVersion: 2
+        x: 3086
+        y: 2876
+        width: 733
+        height: 2027
+      alignment: 9
+      pivot: {x: 0.40915105, y: 0.12923422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5495c33802e496988cf049869b8bf2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_3
+      rect:
+        serializedVersion: 2
+        x: 4725
+        y: 2856
+        width: 736
+        height: 2027
+      alignment: 9
+      pivot: {x: 0.5387766, y: 0.14800727}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d10630f0c61484185ace9d2281c4d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1597
+        width: 664
+        height: 1248
+      alignment: 9
+      pivot: {x: 0.39971033, y: 0.14935352}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158f3e3e750f04e39887d00ac0903e4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_5
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 1606
+        width: 701
+        height: 1086
+      alignment: 9
+      pivot: {x: 0.6628505, y: 0.14960605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a9304ff6eb4426fa8c966662769a47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_6
+      rect:
+        serializedVersion: 2
+        x: 3178
+        y: 1617
+        width: 699
+        height: 1087
+      alignment: 9
+      pivot: {x: 0.3502929, y: 0.12367317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075e386a4bdbe43f9a5910abaaa1524f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_7
+      rect:
+        serializedVersion: 2
+        x: 4781
+        y: 1396
+        width: 667
+        height: 1247
+      alignment: 9
+      pivot: {x: 0.4429494, y: 0.14907223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5341799f932481da94918a41489dce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_8
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 410
+        width: 411
+        height: 661
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.21215783}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cef710b515d4118a3674c8d75cff0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_9
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 401
+        width: 411
+        height: 661
+      alignment: 9
+      pivot: {x: 0.5000006, y: 0.19776581}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af57eb3d186a4473b7b78409791f137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_10
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 692
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202631959be30457191fdf4fbe8d9236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_11
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 387
+        width: 412
+        height: 661
+      alignment: 9
+      pivot: {x: 0.5, y: 0.22654948}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0f789775c9c43c48382ce563f89927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_12
+      rect:
+        serializedVersion: 2
+        x: 2531
+        y: 332
+        width: 412
+        height: 658
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21084553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc28123a0d9d4ccaa58e6066dbfe8ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_13
+      rect:
+        serializedVersion: 2
+        x: 3472
+        y: 502
+        width: 306
+        height: 296
+      alignment: 9
+      pivot: {x: 0.4999992, y: 0.33930412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1552a51949fb48c5af4f97294dfdc4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_14
+      rect:
+        serializedVersion: 2
+        x: 4109
+        y: 484
+        width: 304
+        height: 299
+      alignment: 9
+      pivot: {x: 0.5625867, y: 0.3090998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af30b68e9de494520b041e2649791d4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_15
+      rect:
+        serializedVersion: 2
+        x: 4681
+        y: 502
+        width: 314
+        height: 353
+      alignment: 9
+      pivot: {x: 0.40911126, y: 0.25745425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af57edf1f11764261929b9ebaf938e23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gg_animals2_16
+      rect:
+        serializedVersion: 2
+        x: 5208
+        y: 490
+        width: 313
+        height: 356
+      alignment: 9
+      pivot: {x: 0.56078714, y: 0.25949833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be66ff70d46064afd9124902c4adda2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9ca33c1ba81e3446f82a8fa88bc4ac90
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
