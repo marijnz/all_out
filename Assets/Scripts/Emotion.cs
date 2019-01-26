@@ -7,10 +7,9 @@ public class Emotion : MonoBehaviour
     public SpriteRenderer happy;
     public SpriteRenderer angry;
 
-    public static void Show(Vector3 position, bool isHappy)
+    public static void Show(Transform position, bool isHappy)
     {
-        var emotion = Instantiate(Resources.Load<Emotion>("Emotion"));
-        emotion.transform.position = position;
+        var emotion = Instantiate(Resources.Load<Emotion>("Emotion"), position, false);
 
         emotion.StartCoroutine(emotion.DoShow(isHappy));
     }
