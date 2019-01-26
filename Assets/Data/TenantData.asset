@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potentialTenants:
   - animalName: Dog
-    image: {fileID: 21300000, guid: 32dee8f3fdb394fa49e4c9fad0ba8eed, type: 3}
+    previewImage: {fileID: 21300000, guid: 32dee8f3fdb394fa49e4c9fad0ba8eed, type: 3}
+    image: {fileID: 21300000, guid: 5937553b0188a4f51ab1fde3d62efd69, type: 3}
   - animalName: Panda
-    image: {fileID: 21300000, guid: d3df567ea7ba84e3ab13060f1201609e, type: 3}
+    previewImage: {fileID: 21300000, guid: d3df567ea7ba84e3ab13060f1201609e, type: 3}
+    image: {fileID: 21300000, guid: 5937553b0188a4f51ab1fde3d62efd69, type: 3}
   - animalName: Penguin
-    image: {fileID: 21300000, guid: 43d2e31e13975477f87fcd08834a12a0, type: 3}
+    previewImage: {fileID: 21300000, guid: 43d2e31e13975477f87fcd08834a12a0, type: 3}
+    image: {fileID: 21300000, guid: d77c1c9b6b716e44fae866734a523bba, type: 3}
   - animalName: Rabbit
-    image: {fileID: 21300000, guid: 43e609fd90fc244299ab94e9b97910d7, type: 3}
+    previewImage: {fileID: 21300000, guid: 43e609fd90fc244299ab94e9b97910d7, type: 3}
+    image: {fileID: 21300000, guid: d77c1c9b6b716e44fae866734a523bba, type: 3}
   - animalName: Pig
-    image: {fileID: 21300000, guid: c1575de8b59bc49b585a4eeb8d993609, type: 3}
+    previewImage: {fileID: 21300000, guid: c1575de8b59bc49b585a4eeb8d993609, type: 3}
+    image: {fileID: 21300000, guid: d77c1c9b6b716e44fae866734a523bba, type: 3}
