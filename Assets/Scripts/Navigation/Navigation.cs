@@ -17,15 +17,6 @@ public class Navigation : MonoBehaviour
 		public bool visited;
 		public float g = -1;
 		public float h = -1;
-
-		public void Clear()
-		{
-			pos = default(Vector3Int);
-			nearestToStart = null;
-			visited = false;
-			g = -1;
-			h = -1;
-		}
 	}
 
 	public Tilemap tileMap;
@@ -38,6 +29,8 @@ public class Navigation : MonoBehaviour
 	Node start;
 	Node end;
 
+	List<Node> tempNeighbours = new List<Node>();
+
 	[ContextMenu("Do nav")]
 	void DoNavigation()
 	{
@@ -46,13 +39,8 @@ public class Navigation : MonoBehaviour
 
 	public List<Vector3> GetPath(Vector3 from, Vector3 to)
 	{
-		foreach (var node in nodes.Values)
-		{
-			node.Clear();
-		}
 		open.Clear();
-
-		GetNeighbours(tileMap.WorldToCell(from));
+		nodes.Clear();
 
 		var beginCell = tileMap.WorldToCell(from);
 		var endCell = tileMap.WorldToCell(to);
@@ -68,7 +56,9 @@ public class Navigation : MonoBehaviour
 		var path = new List<Vector3>();
 		path.Add(tileMap.CellToWorld(end.pos));
 		BuildShortestPath(path, end);
+		path.RemoveAt(path.Count - 1); // remove first cell
 		path.Reverse();
+		path.Add(to);
 		return path;
 	}
 
@@ -100,7 +90,8 @@ public class Navigation : MonoBehaviour
 
 			nodeVisits++;
 
-			foreach (var neighbour in GetNeighbours(node.pos))
+			GetNeighbours(node.pos, ref tempNeighbours);
+			foreach (var neighbour in tempNeighbours)
 			{
 				if(neighbour == null) continue;
 
@@ -135,21 +126,18 @@ public class Navigation : MonoBehaviour
 	}
 
 
-	List<Node> GetNeighbours(Vector3Int pos)
+	void GetNeighbours(Vector3Int pos, ref List<Node> result)
 	{
-		var nodes = new List<Node>
-		{
-			GetNode(pos + Vector3Int.right),
-			GetNode(pos + Vector3Int.down),
-			GetNode(pos + Vector3Int.up),
-			GetNode(pos + Vector3Int.left),
-			GetNode(pos + new Vector3Int(1,-1, 0)),
-			GetNode(pos + new Vector3Int(-1,-1, 0)),
-			GetNode(pos + new Vector3Int(-1,1, 0)),
-			GetNode(pos + new Vector3Int(1,1, 0))
-		};
+		result.Clear();
 
-		return nodes;
+		result.Add(GetNode(pos + Vector3Int.right));
+		result.Add(GetNode(pos + Vector3Int.down));
+		result.Add(GetNode(pos + Vector3Int.up));
+		result.Add(GetNode(pos + Vector3Int.left));
+		result.Add(GetNode(pos + new Vector3Int(1,-1, 0)));
+		result.Add(GetNode(pos + new Vector3Int(-1,-1, 0)));
+		result.Add(GetNode(pos + new Vector3Int(-1,1, 0)));
+		result.Add(GetNode(pos + new Vector3Int(1,1, 0)));
 	}
 
 	Node GetNode(Vector3Int pos)

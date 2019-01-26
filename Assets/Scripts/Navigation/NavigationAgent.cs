@@ -21,12 +21,8 @@ public class NavigationAgent : MonoBehaviour
 		if(path != null && path.Count > 0)
 		{
 			var pathNodeDestination = path[pathIndex];
-			pathNodeDestination.y = 0;
 
-			var pos = transform.position;
-			pos.y = 0;
-
-			var dist = Vector3.Distance(pos, pathNodeDestination);
+			var dist = Vector3.Distance(transform.position, pathNodeDestination);
 			if(dist > .1f)
 			{
 				transform.position = Vector3.MoveTowards(transform.position, path[pathIndex], Time.deltaTime * 2);
