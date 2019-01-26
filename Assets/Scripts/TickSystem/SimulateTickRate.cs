@@ -19,11 +19,16 @@ public sealed class SimulateTickRate : MonoBehaviour
 		_actualTicks += _ticksPerSecond * Time.deltaTime;
 		int ticks = (int) _actualTicks;
 
-		for (int i = _actualTickCount; i < ticks; i++)
+		if (ticks > 0)
 		{
-			_onTickUpdate?.Invoke(i);
-		}
+			_actualTicks -= ticks;
+			for (int i = _actualTickCount; i < _actualTickCount + ticks; i++)
+			{
+				Debug.Log("tick");
+				_onTickUpdate?.Invoke(i);
+			}
 
-		_actualTickCount = ticks;
+			_actualTickCount += ticks;
+		}
 	}
 }
