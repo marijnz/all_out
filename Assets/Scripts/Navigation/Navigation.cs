@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 /// <summary>
@@ -19,7 +20,8 @@ public class Navigation : MonoBehaviour
 		public float h = -1;
 	}
 
-	public Tilemap tileMap;
+	public Tilemap walkableTileMap;
+	public Tilemap nonWalkableTileMap;
 
 	public Transform fromTransform;
 	public Transform toTransform;
@@ -42,11 +44,11 @@ public class Navigation : MonoBehaviour
 		open.Clear();
 		nodes.Clear();
 
-		var beginCell = tileMap.WorldToCell(from);
-		var endCell = tileMap.WorldToCell(to);
+		var beginCell = walkableTileMap.WorldToCell(from);
+		var endCell = walkableTileMap.WorldToCell(to);
 
-		if(tileMap.GetTile(beginCell) == null) return null;
-		if(tileMap.GetTile(endCell) == null) return null;
+		if(walkableTileMap.GetTile(beginCell) == null) return null;
+		if(walkableTileMap.GetTile(endCell) == null) return null;
 
 		start = GetNode(beginCell);
 		end = GetNode(endCell);
@@ -54,7 +56,7 @@ public class Navigation : MonoBehaviour
 		AstarSearch(start);
 
 		var path = new List<Vector3>();
-		path.Add(tileMap.CellToWorld(end.pos));
+		path.Add(walkableTileMap.CellToWorld(end.pos));
 		BuildShortestPath(path, end);
 		path.RemoveAt(path.Count - 1); // remove first cell
 		path.Reverse();
@@ -69,7 +71,7 @@ public class Navigation : MonoBehaviour
 		{
 			if (node.nearestToStart == null) return;
 
-			list.Add(tileMap.CellToWorld(node.nearestToStart.pos));
+			list.Add(walkableTileMap.CellToWorld(node.nearestToStart.pos));
 			node = node.nearestToStart;
 		}
 		if(maxLoops <= 0) Debug.LogError("Hit max in building the shortest path in A*");
@@ -140,7 +142,8 @@ public class Navigation : MonoBehaviour
 
 	Node GetNode(Vector3Int pos)
 	{
-		if(!TileExists(pos)) return null;
+		if(walkableTileMap.GetTile(pos) == null) return null;
+		if(nonWalkableTileMap.GetTile(pos) != null) return null;
 
 		Node node;
 		if(!nodes.TryGetValue(pos, out node))
@@ -152,11 +155,6 @@ public class Navigation : MonoBehaviour
 			nodes[pos] = node;
 		}
 		return node;
-	}
-
-	bool TileExists(Vector3Int pos)
-	{
-		return tileMap.GetTile(pos) != null;
 	}
 }
 
