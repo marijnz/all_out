@@ -20,5 +20,6 @@ public class TenantData : ScriptableObject
 		public string animalName;
 		public Sprite previewImage;
 		public Sprite image;
+		public Sprite[] directionImages;
 	}
 }

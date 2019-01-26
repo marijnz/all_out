@@ -132,10 +132,10 @@ public class Navigation : MonoBehaviour
 		result.Add(GetNode(pos + Vector3Int.down));
 		result.Add(GetNode(pos + Vector3Int.up));
 		result.Add(GetNode(pos + Vector3Int.left));
-		result.Add(GetNode(pos + new Vector3Int(1,-1, 0)));
-		result.Add(GetNode(pos + new Vector3Int(-1,-1, 0)));
-		result.Add(GetNode(pos + new Vector3Int(-1,1, 0)));
-		result.Add(GetNode(pos + new Vector3Int(1,1, 0)));
+		//result.Add(GetNode(pos + new Vector3Int(1,-1, 0)));
+		//result.Add(GetNode(pos + new Vector3Int(-1,-1, 0)));
+		//result.Add(GetNode(pos + new Vector3Int(-1,1, 0)));
+		//result.Add(GetNode(pos + new Vector3Int(1,1, 0)));
 	}
 
 	Node GetNode(Vector3Int pos)

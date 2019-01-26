@@ -49,6 +49,8 @@ public class PickTenantRoot : MonoBehaviour
 
     static bool done;
 
+    bool closing;
+
     public static IEnumerator Show()
     {
         results.Clear();
@@ -88,23 +90,27 @@ public class PickTenantRoot : MonoBehaviour
             instance.Init(generatedTenant);
             instance.button.onClick += () =>
             {
-                if(!instance.selected)
+                if(!closing)
                 {
-                    instance.transform.DOScale(Vector3.one * 1.1f, .3f).SetEase(Ease.OutBack);
-                    instance.selected = true;
-                    results.Add(generatedTenant);
-                    count++;
-                }
-                else
-                {
-                    instance.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutSine);
-                    instance.selected = false;
-                    results.Remove(generatedTenant);
-                    count--;
-                }
-                if(count == amountOfTenantsToPick)
-                {
-                    StartCoroutine(CloseScene());
+                    if(!instance.selected)
+                    {
+                        instance.transform.DOScale(Vector3.one * 1.1f, .3f).SetEase(Ease.OutBack);
+                        instance.selected = true;
+                        results.Add(generatedTenant);
+                        count++;
+                    }
+                    else
+                    {
+                        instance.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutSine);
+                        instance.selected = false;
+                        results.Remove(generatedTenant);
+                        count--;
+                    }
+                    if(count == amountOfTenantsToPick)
+                    {
+                        closing = true;
+                        StartCoroutine(CloseScene());
+                    }
                 }
             };
         }

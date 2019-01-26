@@ -24,8 +24,10 @@ public class CharacterSpawnManager : MonoBehaviour
 
 
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-            Instantiate(tenantPrefab, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-            tenantPrefab.spriteRenderer.sprite = character.data.image;
+            var instance = Instantiate(tenantPrefab, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            instance.spriteRenderer.sprite = character.data.image;
+            instance.directionSprites = character.data.directionImages;
+            instance.SetData(character);
 
             spawnPoints.RemoveAt(spawnPointIndex);
             yield return new WaitForSeconds(.5f);
