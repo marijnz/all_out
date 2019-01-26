@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public class GeneratedTenant
+{
+    public List<TenantTrait> traits = new List<TenantTrait>();
+    public TenantData.TenantItem data;
+}
+
+
 public class PickTenantRoot : MonoBehaviour
 {
-    public static TenantData.TenantItem result;
+    public static GeneratedTenant result;
 
     const int amountOfTenantsToPick = 4;
     const string sceneName = "PickTenant";
 
     public TenantData tenantData;
-
+    public TenantGenerator tenantGenerator;
     public GameObject tennantsContainer;
     public TenantElement template;
 
@@ -39,10 +47,11 @@ public class PickTenantRoot : MonoBehaviour
         {
             var instance = Instantiate(template, tennantsContainer.transform, false);
             var data = tenantData.potentialTenants.Random();
-            instance.Init(data);
+            var generatedTenant = tenantGenerator.Generate(data);
+            instance.Init(generatedTenant);
             instance.button.onClick += () =>
             {
-                result = data;
+                result = generatedTenant;
                 CloseScene();
             };
         }

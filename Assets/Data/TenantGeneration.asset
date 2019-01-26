@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63635e5d3c9349f482c80a2a3ca60759, type: 3}
+  m_Name: TenantGeneration
+  m_EditorClassIdentifier: 
+  traits:
+  - id: 0
+    name: Nocturnal
+    dislikes: 01000000
+  - id: 1
+    name: Sleeps at night
+    dislikes: 00000000
+  - id: 2
+    name: Extrovert
+    dislikes: 03000000
+  - id: 3
+    name: Introvert
+    dislikes: 02000000
+  - id: 4
+    name: Quiet
+    dislikes: 0500000002000000
+  - id: 5
+    name: Likes loud music
+    dislikes: 0400000003000000
+  - id: 6
+    name: Loves to party
+    dislikes: 04000000
+  - id: 7
+    name: Carnivore
+    dislikes: 08000000
+  - id: 8
+    name: Vegetarian
+    dislikes: 07000000
+  - id: 9
+    name: Workaholic
+    dislikes: 0a00000005000000
+  - id: 10
+    name: Couch Potato
+    dislikes: 09000000
+  - id: 11
+    name: Super tolerant
+    dislikes: 
+  - id: 12
+    name: Messy
+    dislikes: 0d000000
+  - id: 13
+    name: Clean
+    dislikes: 0c000000
+  - id: 13
+    name: Takes long showers
+    dislikes: 
+  names:
+  - Larry
+  - Mona
+  - Manny
+  - Jennifer
+  - Camilla
+  - Chrystal
+  - Lenny
+  - Sven
+  - Norb
+  - Lacy
