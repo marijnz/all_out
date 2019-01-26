@@ -21,5 +21,6 @@ public class TenantData : ScriptableObject
 		public Sprite previewImage;
 		public Sprite image;
 		public Sprite[] directionImages;
+		public AudioClip audioClip;
 	}
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -81,6 +80,7 @@ public class PickTenantRoot : MonoBehaviour
 						instance.selected = true;
 						results.Add(generatedTenant);
 						count++;
+                        AudioSource.PlayClipAtPoint(data.audioClip, Vector3.zero);
 					}
 					else
 					{
