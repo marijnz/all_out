@@ -9,6 +9,6 @@ public class Setup : MonoBehaviour
     {
         yield return PickTenantRoot.Show();
 
-        Debug.Log("Picked a : " + PickTenantRoot.result.name);
+        Debug.Log("Picked a : " + PickTenantRoot.result.data.animalName);
     }
 }

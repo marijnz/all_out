@@ -16,7 +16,7 @@ public class TenantData : ScriptableObject
 	[Serializable]
 	public class TenantItem
 	{
-		public string name;
+		public string animalName;
 		public Sprite image;
 	}
 }
