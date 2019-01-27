@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -10,12 +11,14 @@ public class TenantEvaluator : MonoBehaviour
 		public Tenant first;
 		public Tenant second;
 		public int tick;
+		public bool bothWereHappy;
 
-		public CheckedTenants(Tenant first, Tenant second, int tick)
+		public CheckedTenants(Tenant first, Tenant second, int tick, bool bothWereHappy)
 		{
 			this.first = first;
 			this.second = second;
 			this.tick = tick;
+			this.bothWereHappy = bothWereHappy;
 		}
 
 		// override object.Equals
@@ -36,13 +39,13 @@ public class TenantEvaluator : MonoBehaviour
 			CheckedTenants other = (CheckedTenants) obj;
 
 			return ((first == other.first && second == other.second) ||
-				(second == other.first && first == other.second)) && tick == other.tick;
+				(second == other.first && first == other.second)) && tick == other.tick && bothWereHappy == other.bothWereHappy;
 		}
 
 		// override object.GetHashCode
 		public override int GetHashCode()
 		{
-			return first.GetHashCode() * second.GetHashCode() * tick;
+			return first.GetHashCode() * second.GetHashCode() * tick.GetHashCode() * bothWereHappy.GetHashCode();
 		}
 	}
 
@@ -58,6 +61,7 @@ public class TenantEvaluator : MonoBehaviour
 
 	void OnTick(int tick)
 	{
+		int totallyHappinessCount = 0;
 		for (int i = 0; i < _allTenants.Count; i++)
 		{
 			Tenant first = _allTenants[i];
@@ -85,25 +89,37 @@ public class TenantEvaluator : MonoBehaviour
 					second.happiness += secondIsHappy ? 1 : -1;
 
 					List<Tenant> unhappyTenants = new List<Tenant>();
-					if(first.happiness <= 0)
+					if (first.happiness <= 0)
 					{
 						first.lastFrustration = second;
 						unhappyTenants.Add(first);
 					}
-					if(second.happiness <= 0)
+					if (second.happiness <= 0)
 					{
 						second.lastFrustration = first;
 						unhappyTenants.Add(second);
 					}
 
-					if(unhappyTenants.Count > 0)
+					if (unhappyTenants.Count > 0)
 					{
 						FindObjectOfType<Setup>().RequestNewTenants(unhappyTenants);
+						totallyHappinessCount = int.MinValue;
 					}
 
-					_checkedTenants.Add(new CheckedTenants(first, second, tick));
+					_checkedTenants.Add(new CheckedTenants(first, second, tick, firstIsHappy && secondIsHappy));
+				}
+
+				if (_checkedTenants.Where(couple => (couple.first == first && couple.second == second) || (couple.second == first && couple.first == second)).Any(couple => couple.bothWereHappy))
+				{
+					totallyHappinessCount++;
 				}
 			}
+		}
+
+		if (totallyHappinessCount >= (_allTenants.Count * (_allTenants.Count - 1) * 0.5f))
+		{
+			Debug.LogFormat("Happiness: {0} // Tenants: {1}", totallyHappinessCount, _allTenants.Count);
+			// TODO: for Marijn, add visually feedback
 		}
 	}
 
@@ -123,5 +139,7 @@ public class TenantEvaluator : MonoBehaviour
 	{
 		if (_allTenants.Contains(tenant))
 			_allTenants.Remove(tenant);
+
+		_checkedTenants = _checkedTenants.Except(_checkedTenants.Where(couple => couple.first == tenant || couple.second == tenant)).ToList();
 	}
 }
