@@ -15,9 +15,12 @@ public sealed class SimulateTickRate : MonoBehaviour
 	private float _actualTicks = 0.0f;
 	private int _actualTickCount = 0;
 
+	[SerializeField] private int[] _timeMultiplier = null;
+	private int _actualMultiplierIndex = 0;
+
 	private void Update()
 	{
-		if(paused) return;
+		if (paused) return;
 
 		_actualTicks += _ticksPerSecond * Time.deltaTime;
 		int ticks = (int) _actualTicks;
@@ -32,5 +35,15 @@ public sealed class SimulateTickRate : MonoBehaviour
 
 			_actualTickCount += ticks;
 		}
+	}
+
+	public int IncreaseTimeMultiplier()
+	{
+		if (_timeMultiplier == null || _timeMultiplier.Length == 0) return (int)Time.timeScale;
+
+		_actualMultiplierIndex = ++_actualMultiplierIndex % _timeMultiplier.Length;
+		Time.timeScale = _timeMultiplier[_actualMultiplierIndex];
+
+		return _timeMultiplier[_actualMultiplierIndex];
 	}
 }
