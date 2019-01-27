@@ -129,7 +129,7 @@ public class TenantEvaluator : MonoBehaviour
 			}
 		}
 
-		if (totallyHappinessCount >= (_allTenants.Count * (_allTenants.Count - 1) * 0.5f))
+		if (_allTenants.Count > 1 && totallyHappinessCount >= (_allTenants.Count * (_allTenants.Count - 1) * 0.5f))
 		{
 			Debug.LogFormat("Happiness: {0} // Tenants: {1}", totallyHappinessCount, _allTenants.Count);
 			// TODO: for Marijn, add visually feedback
