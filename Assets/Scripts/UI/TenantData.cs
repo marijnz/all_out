@@ -6,12 +6,6 @@ using UnityEngine.Serialization;
 
 public class TenantData : ScriptableObject
 {
-	[MenuItem("Assets/Create/TenantData")]
-	public static void CreateAsset ()
-	{
-		ScriptableObjectUtility.CreateAsset<TenantData> ();
-	}
-
 	public List<TenantItem> potentialTenants = new List<TenantItem>();
 
 	[Serializable]
