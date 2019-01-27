@@ -52,7 +52,7 @@ public class PickTenantRoot : MonoBehaviour
     IEnumerator CloseScene()
     {
         yield return new WaitForSeconds(.3f);
-        container.DOFade(0, .3f).OnComplete(() =>
+        container.DOFade(0, .25f).OnComplete(() =>
         {
             SceneManager.UnloadSceneAsync(sceneName);
             done = true;
@@ -62,11 +62,15 @@ public class PickTenantRoot : MonoBehaviour
     void Awake()
     {
         container.alpha = 0;
-        container.DOFade(1, .3f);
+        container.DOFade(1, .25f);
     }
+
+    List<GeneratedTenant> generatedTenants = new List<GeneratedTenant>();
 
     void Start()
     {
+        generatedTenants.Clear();
+
         if(amountOfTenantsToPick == 1) tenantsToPickLabel.text = "Pick a new tenant!";
         else if(amountOfTenantsToPick == 2) tenantsToPickLabel.text = "Pick two new tenants!";
         else if(amountOfTenantsToPick == 3)  tenantsToPickLabel.text = "Pick three new tenants!";
@@ -76,9 +80,16 @@ public class PickTenantRoot : MonoBehaviour
         {
             var instance = Instantiate(template, tennantsContainer.transform, false);
             var data = tenantData.potentialTenants.Random();
-            var generatedTenant = tenantGenerator.Generate(data);
+
+            GeneratedTenant generatedTenant;
+            do
+            {
+                generatedTenant = tenantGenerator.Generate(data);
+            } while(i-1 == amountOfTenantsToPick && !AnyConflicting());
+
             generatedTenant.dataId = tenantData.potentialTenants.IndexOf(data);
             instance.Init(generatedTenant);
+            generatedTenants.Add(generatedTenant);
             instance.button.onClick += () =>
             {
                 if(!closing)
@@ -108,5 +119,43 @@ public class PickTenantRoot : MonoBehaviour
         }
 
         template.gameObject.SetActive(false);
+    }
+
+    bool AnyConflicting()
+    {
+        var all = AllTenants();
+        bool anyConflicting = false;
+        for (int i = 0; i < all.Count; i++)
+        {
+            var first = all[i];
+            for (int j = i + 1; j < all.Count; j++)
+            {
+                var second = all[j];
+                anyConflicting |= !TenantEvaluator.IsHappyWith(first, second);
+                anyConflicting |= !TenantEvaluator.IsHappyWith(second, first);
+            }
+        }
+        return anyConflicting;
+    }
+
+    List<GeneratedTenant> allTenantsList = new List<GeneratedTenant>();
+
+    List<GeneratedTenant> AllTenants()
+    {
+        allTenantsList.Clear();
+        foreach (var generatedTenant in generatedTenants)
+        {
+            allTenantsList.Add(generatedTenant);
+        }
+
+        var evaluator = FindObjectOfType<TenantEvaluator>();
+        if(evaluator != null)
+        {
+            foreach (var tenant in evaluator._allTenants)
+            {
+                allTenantsList.Add(tenant.generatedTenant);
+            }
+        }
+        return allTenantsList;
     }
 }

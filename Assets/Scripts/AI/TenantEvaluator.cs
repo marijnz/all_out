@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class TenantEvaluator : MonoBehaviour
@@ -44,7 +45,8 @@ public class TenantEvaluator : MonoBehaviour
 			return first.GetHashCode() * second.GetHashCode() * tick;
 		}
 	}
-	private List<Tenant> _allTenants = new List<Tenant>();
+
+	public List<Tenant> _allTenants = new List<Tenant>();
 	private List<CheckedTenants> _checkedTenants = new List<CheckedTenants>();
 	[SerializeField] private float _evaluationDistance = 1.0f;
 	[SerializeField] private int _ticksToSleepForACouple = 500;
@@ -67,22 +69,33 @@ public class TenantEvaluator : MonoBehaviour
 				{
 					if (_checkedTenants.Any(couple => couple.tick > tick - _ticksToSleepForACouple && ((couple.first == first && couple.second == second) || (couple.second == first && couple.first == second)))) continue;
 
+					first.transform.DOPunchScale(Vector3.one * 0.15f, .4f, 6, 1f);
+					second.transform.DOPunchScale(Vector3.one * 0.15f, .4f, 6, 1f);
 					first.StopMoving();
 					second.StopMoving();
-					var firstIsHappy = !first.Traits.Any(traitOfFirst =>
-										second.Traits.Any(traitOfSecond =>
-										traitOfFirst.dislikes.Contains(traitOfSecond.id)));
+					var firstIsHappy = IsHappyWith(first.generatedTenant, second.generatedTenant);
 
 					Emotion.Show(first.transform, firstIsHappy);
 
-					var secondIsHappy = !first.Traits.Any(traitOfFirst =>
-										second.Traits.Any(traitOfSecond =>
-										traitOfSecond.dislikes.Contains(traitOfFirst.id)));
+					var secondIsHappy = IsHappyWith(second.generatedTenant, first.generatedTenant);
 
 					Emotion.Show(second.transform, secondIsHappy);
 
 					first.happiness += firstIsHappy ? 1 : -1;
 					second.happiness += secondIsHappy ? 1 : -1;
+
+					if(firstIsHappy && secondIsHappy)
+					{
+						AudioPlayer.Play("meetLikeLike");
+					}
+					else if(!firstIsHappy && !secondIsHappy)
+					{
+						AudioPlayer.Play("meetHateHate");
+					}
+					else
+					{
+						AudioPlayer.Play("meetLikeHate");
+					}
 
 					List<Tenant> unhappyTenants = new List<Tenant>();
 					if(first.happiness <= 0)
@@ -105,6 +118,13 @@ public class TenantEvaluator : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public static bool IsHappyWith(GeneratedTenant a, GeneratedTenant b)
+	{
+		return !a.traits.Any(traitOfFirst =>
+			b.traits.Any(traitOfSecond =>
+				traitOfFirst.dislikes.Contains(traitOfSecond.id)));
 	}
 
 	public void Add(Tenant tenant)
