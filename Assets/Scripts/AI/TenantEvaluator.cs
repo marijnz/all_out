@@ -53,6 +53,7 @@ public class TenantEvaluator : MonoBehaviour
 	private List<CheckedTenants> _checkedTenants = new List<CheckedTenants>();
 	[SerializeField] private float _evaluationDistance = 1.0f;
 	[SerializeField] private int _ticksToSleepForACouple = 500;
+	[SerializeField] private int _maximumNumberOfChecks = 100;
 
 	void Start()
 	{
@@ -129,7 +130,8 @@ public class TenantEvaluator : MonoBehaviour
 			}
 		}
 
-		if (_allTenants.Count >= 3 && totallyHappinessCount >= (_allTenants.Count * (_allTenants.Count - 1) * 0.5f))
+		if ((_allTenants.Count >= 3 && totallyHappinessCount >= _allTenants.Count * (_allTenants.Count - 1) * 0.5f) ||
+			_checkedTenants.Count >= _maximumNumberOfChecks)
 		{
 			//Debug.LogFormat("Happiness: {0} // Tenants: {1}", totallyHappinessCount, _allTenants.Count);
 			GameOver.Show();
