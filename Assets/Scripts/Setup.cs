@@ -26,7 +26,8 @@ public class Setup : MonoBehaviour
 	    DoBlur(true);
 	    foreach (var unhappyTenant in unhappyTenants)
 	    {
-		    Destroy(unhappyTenant.gameObject, 5f);
+		    yield return TenantLeaves.Show(unhappyTenant, unhappyTenant.lastFrustration);
+		    Destroy(unhappyTenant.gameObject, 1f);
 	    }
 
 	    StartCoroutine(PickTenants(unhappyTenants.Count));
@@ -60,5 +61,10 @@ public class Setup : MonoBehaviour
 			    blur.postprocessMaterial.DOFloat(0f, "_BlurSize", duration);
 		    }
 	    }
+    }
+
+    void OnDestroy()
+    {
+	    DoBlur(false, false);
     }
 }

@@ -10,6 +10,7 @@ public class GeneratedTenant
 {
     public List<TenantTrait> traits = new List<TenantTrait>();
     public TenantData.TenantItem data;
+    public int dataId;
 }
 
 public class PickTenantRoot : MonoBehaviour
@@ -76,6 +77,7 @@ public class PickTenantRoot : MonoBehaviour
             var instance = Instantiate(template, tennantsContainer.transform, false);
             var data = tenantData.potentialTenants.Random();
             var generatedTenant = tenantGenerator.Generate(data);
+            generatedTenant.dataId = tenantData.potentialTenants.IndexOf(data);
             instance.Init(generatedTenant);
             instance.button.onClick += () =>
             {

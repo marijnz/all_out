@@ -85,8 +85,16 @@ public class TenantEvaluator : MonoBehaviour
 					second.happiness += secondIsHappy ? 1 : -1;
 
 					List<Tenant> unhappyTenants = new List<Tenant>();
-					if(first.happiness <= 0) unhappyTenants.Add(first);
-					if(second.happiness <= 0) unhappyTenants.Add(second);
+					if(first.happiness <= 0)
+					{
+						first.lastFrustration = second;
+						unhappyTenants.Add(first);
+					}
+					if(second.happiness <= 0)
+					{
+						second.lastFrustration = first;
+						unhappyTenants.Add(second);
+					}
 
 					if(unhappyTenants.Count > 0)
 					{
