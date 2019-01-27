@@ -47,7 +47,10 @@ public class Navigation : MonoBehaviour
 		var beginCell = tileGrid.walkableTileMap.WorldToCell(from);
 		var endCell = tileGrid.walkableTileMap.WorldToCell(to);
 
-		if(tileGrid.walkableTileMap.GetTile(beginCell) == null)
+		start = GetNode(beginCell);
+		end = GetNode(endCell);
+
+		if (start == null)
 		{
 			// Sometimes the from tile is null, so look for neighbours and do it hacky
 			List<Node> results = new List<Node>();
@@ -55,29 +58,30 @@ public class Navigation : MonoBehaviour
 			bool found = false;
 			foreach (var result in results)
 			{
-				if(result != null)
+				if (result != null)
 				{
 					beginCell = result.pos;
 					found = true;
 					break;
 				}
 			}
-			if(!found)
+			if (found)
+			{
+				start = GetNode(beginCell);
+			}
+			else
 			{
 				Debug.LogWarning("Begin is not on tile and couldn't find neighbor that is! " + from);
 				return null;
 			}
 		}
-		if(tileGrid.walkableTileMap.GetTile(endCell) == null)
+		if (end == null)
 		{
 			Debug.LogWarning("End is not on tile: " + to);
 			return null;
 		}
 
-		start = GetNode(beginCell);
-		end = GetNode(endCell);
-
-		if(start == null || end == null) return null;
+		if (start == null || end == null) return null;
 
 		AstarSearch(start);
 
@@ -100,7 +104,7 @@ public class Navigation : MonoBehaviour
 			list.Add(tileGrid.walkableTileMap.CellToWorld(node.nearestToStart.pos));
 			node = node.nearestToStart;
 		}
-		if(maxLoops <= 0) Debug.LogError("Hit max in building the shortest path in A*");
+		if (maxLoops <= 0) Debug.LogError("Hit max in building the shortest path in A*");
 	}
 
 	void AstarSearch(Node start)
@@ -121,16 +125,16 @@ public class Navigation : MonoBehaviour
 			GetNeighbours(node.pos, ref tempNeighbours);
 			foreach (var neighbour in tempNeighbours)
 			{
-				if(neighbour == null) continue;
+				if (neighbour == null) continue;
 
-				var cost = node.g +  Vector3.Distance(node.pos, neighbour.pos);
+				var cost = node.g + Vector3.Distance(node.pos, neighbour.pos);
 
 				if ((!neighbour.visited && neighbour.g == -1))
 				{
 					neighbour.g = cost;
 					neighbour.nearestToStart = node;
 
-					if(neighbour.h == -1) neighbour.h = GetH(neighbour);
+					if (neighbour.h == -1) neighbour.h = GetH(neighbour);
 					open.push(neighbour);
 				}
 			}
@@ -142,7 +146,7 @@ public class Navigation : MonoBehaviour
 		}
 		while (open.Count != 0 && --maxCount > 0);
 
-		if(maxCount <= 0) Debug.LogWarning("Hit max in A* search");
+		if (maxCount <= 0) Debug.LogWarning("Hit max in A* search");
 	}
 
 	float GetH(Node node)
@@ -150,7 +154,6 @@ public class Navigation : MonoBehaviour
 		const float hCostHeuristic = 1.3f;
 		return Vector3.Distance(node.pos, end.pos) * hCostHeuristic;
 	}
-
 
 	void GetNeighbours(Vector3Int pos, ref List<Node> result)
 	{
@@ -164,11 +167,11 @@ public class Navigation : MonoBehaviour
 
 	Node GetNode(Vector3Int pos)
 	{
-		if(tileGrid.walkableTileMap.GetTile(pos) == null) return null;
-		if(tileGrid.nonWalkableTileMap.GetTile(pos) != null) return null;
+		if (tileGrid.walkableTileMap.GetTile(pos) == null) return null;
+		if (tileGrid.nonWalkableTileMap.GetTile(pos) != null) return null;
 
 		Node node;
-		if(!nodes.TryGetValue(pos, out node))
+		if (!nodes.TryGetValue(pos, out node))
 		{
 			node = new Node()
 			{
@@ -238,8 +241,8 @@ public class EdgeHeap<T> where T : Navigation.Node
 	{
 		var fCostA = a.g + a.h;
 		var fCostB = b.g + b.h;
-		if(fCostA < fCostB) return 1;
-		if(fCostA > fCostB) return -1;
+		if (fCostA < fCostB) return 1;
+		if (fCostA > fCostB) return -1;
 		return 0;
 	}
 }
