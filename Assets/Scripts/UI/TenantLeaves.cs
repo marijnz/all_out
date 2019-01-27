@@ -23,6 +23,7 @@ public class TenantLeaves : MonoBehaviour
 
     public static IEnumerator Show(Tenant t, Tenant otherT)
     {
+        isDone = false;
         tenant = t;
         otherTenant = otherT;
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
