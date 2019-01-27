@@ -67,7 +67,7 @@ public class PickTenantRoot : MonoBehaviour
 
     void Start()
     {
-        if(amountOfTenantsToPick == 1) tenantsToPickLabel.text = "Pick one new tenant!";
+        if(amountOfTenantsToPick == 1) tenantsToPickLabel.text = "Pick a new tenant!";
         else if(amountOfTenantsToPick == 2) tenantsToPickLabel.text = "Pick two new tenants!";
         else if(amountOfTenantsToPick == 3)  tenantsToPickLabel.text = "Pick three new tenants!";
 

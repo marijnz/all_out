@@ -76,6 +76,8 @@ public class Navigation : MonoBehaviour
 		start = GetNode(beginCell);
 		end = GetNode(endCell);
 
+		if(start == null || end == null) return null;
+
 		AstarSearch(start);
 
 		var path = new List<Vector3>();

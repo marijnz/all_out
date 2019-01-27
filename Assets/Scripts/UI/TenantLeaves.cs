@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,10 +8,13 @@ using UnityEngine.UI;
 
 public class TenantLeaves : MonoBehaviour
 {
+    const string sceneName = "TenantLeaves";
     public TextMeshProUGUI speechLabel;
     public TenantLeavingSentences tenantLeavingSentences;
     public GameObject tenantImagesContainer;
     public Button fullscreenClick;
+    public CanvasGroup container;
+
 
     static bool isDone;
 
@@ -21,7 +25,7 @@ public class TenantLeaves : MonoBehaviour
     {
         tenant = t;
         otherTenant = otherT;
-        SceneManager.LoadScene("TenantLeaves", LoadSceneMode.Additive);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         while(!isDone)
         {
             yield return null;
@@ -29,10 +33,23 @@ public class TenantLeaves : MonoBehaviour
         isDone = false;
     }
 
+    IEnumerator CloseScene()
+    {
+        yield return new WaitForSeconds(.3f);
+        container.DOFade(0, .3f).OnComplete(() =>
+        {
+            SceneManager.UnloadSceneAsync(sceneName);
+            isDone = true;
+        });
+    }
+
     void Start()
     {
+        container.alpha = 0;
+        container.DOFade(1, .3f);
+
         var text = tenantLeavingSentences.texts.Random();
-        speechLabel.text = text.Replace("OTHERANIMAL", otherTenant.generatedTenant.data.animalName.ToLower());
+        text = text.Replace("OTHERANIMAL", otherTenant.generatedTenant.data.animalName.ToLower());
         speechLabel.text = text.Replace("THISANIMAL", tenant.generatedTenant.data.animalName.ToLower());
 
         int index = 0;
@@ -46,7 +63,8 @@ public class TenantLeaves : MonoBehaviour
 
         fullscreenClick.onClick.AddListener(() =>
         {
-            isDone = true;
+            StartCoroutine(CloseScene());
+            fullscreenClick.enabled = false;
         });
 
         fullscreenClick.enabled = false;
