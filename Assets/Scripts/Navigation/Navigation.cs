@@ -47,8 +47,31 @@ public class Navigation : MonoBehaviour
 		var beginCell = tileGrid.walkableTileMap.WorldToCell(from);
 		var endCell = tileGrid.walkableTileMap.WorldToCell(to);
 
-		if(tileGrid.walkableTileMap.GetTile(beginCell) == null) return null;
-		if(tileGrid.walkableTileMap.GetTile(endCell) == null) return null;
+		if(tileGrid.walkableTileMap.GetTile(beginCell) == null)
+		{
+			// Sometimes the from tile is null, so look for neighbours and do it hacky
+			List<Node> results = new List<Node>();
+			GetNeighbours(beginCell, ref results);
+			bool found = false;
+			foreach (var result in results)
+			{
+				if(result != null)
+				{
+					beginCell = result.pos;
+					found = true;
+				}
+			}
+			if(!found)
+			{
+				Debug.LogWarning("Begin is not on tile and couldn't find neighbor that is! " + from);
+				return null;
+			}
+		}
+		if(tileGrid.walkableTileMap.GetTile(endCell) == null)
+		{
+			Debug.LogWarning("End is not on tile: " + to);
+			return null;
+		}
 
 		start = GetNode(beginCell);
 		end = GetNode(endCell);
@@ -134,10 +157,6 @@ public class Navigation : MonoBehaviour
 		result.Add(GetNode(pos + Vector3Int.down));
 		result.Add(GetNode(pos + Vector3Int.up));
 		result.Add(GetNode(pos + Vector3Int.left));
-		//result.Add(GetNode(pos + new Vector3Int(1,-1, 0)));
-		//result.Add(GetNode(pos + new Vector3Int(-1,-1, 0)));
-		//result.Add(GetNode(pos + new Vector3Int(-1,1, 0)));
-		//result.Add(GetNode(pos + new Vector3Int(1,1, 0)));
 	}
 
 	Node GetNode(Vector3Int pos)
