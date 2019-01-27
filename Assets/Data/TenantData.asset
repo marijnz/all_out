@@ -67,3 +67,12 @@ MonoBehaviour:
     - {fileID: 21300006, guid: 6e66676632afe40e6852979d0926db5e, type: 3}
     - {fileID: 21300000, guid: 6e66676632afe40e6852979d0926db5e, type: 3}
     audioClip: {fileID: 8300000, guid: 9c4dd1c4fe88d40a98784a0f1880bf78, type: 3}
+  - animalName: Turtle
+    previewImage: {fileID: 21300006, guid: b43611c5460ea4cc0a07cb20b4640925, type: 3}
+    image: {fileID: 21300002, guid: 6e66676632afe40e6852979d0926db5e, type: 3}
+    directionImages:
+    - {fileID: 21300000, guid: b43611c5460ea4cc0a07cb20b4640925, type: 3}
+    - {fileID: 21300002, guid: b43611c5460ea4cc0a07cb20b4640925, type: 3}
+    - {fileID: 21300004, guid: b43611c5460ea4cc0a07cb20b4640925, type: 3}
+    - {fileID: 21300006, guid: b43611c5460ea4cc0a07cb20b4640925, type: 3}
+    audioClip: {fileID: 8300000, guid: df33d74c1f8634747a5292322bfdbb01, type: 3}

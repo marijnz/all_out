@@ -46,7 +46,7 @@ public class Setup : MonoBehaviour
 	    FindObjectOfType<CharacterSpawnManager>().Spawn(PickTenantRoot.results);
     }
 
-    void DoBlur(bool doBlur, bool instant = false)
+    public void DoBlur(bool doBlur, bool instant = false)
     {
 	    var blur = FindObjectOfType<PostprocessingBlur>();
 	    if(blur != null)

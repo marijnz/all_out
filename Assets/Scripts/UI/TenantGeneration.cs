@@ -3,15 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-
 public class TenantGeneration : ScriptableObject
 {
-	[MenuItem("Assets/Create/TenantGeneration")]
-	public static void CreateAsset ()
-	{
-		ScriptableObjectUtility.CreateAsset<TenantGeneration>();
-	}
-
 	public List<TenantTrait> traits;
 	public List<string> names;
 }
