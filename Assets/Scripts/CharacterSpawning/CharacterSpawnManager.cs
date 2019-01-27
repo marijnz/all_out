@@ -9,6 +9,13 @@ public class CharacterSpawnManager : MonoBehaviour
 
     public List<Transform> spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
+    public List<Transform> spawnPointsCopy;
+    void Awake()
+    {
+        spawnPointsCopy = new List<Transform>();
+        spawnPointsCopy.AddRange(spawnPoints);
+    }
+
     public void Spawn(List<GeneratedTenant> results)
     {
         StartCoroutine(DoSpawn(results));
@@ -30,6 +37,10 @@ public class CharacterSpawnManager : MonoBehaviour
             instance.SetData(character);
 
             spawnPoints.RemoveAt(spawnPointIndex);
+            if(spawnPoints.Count == 0)
+            {
+                spawnPoints.AddRange(spawnPointsCopy);
+            }
             yield return new WaitForSeconds(.5f);
         }
     }

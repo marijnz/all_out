@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(NavigationAgent))]
 public class Tenant : MonoBehaviour
 {
+	const int startHappiness = 2;
+
 	public SpriteRenderer spriteRenderer;
 
 	public Sprite[] directionSprites;
+
+	public int happiness = startHappiness;
 
 	GeneratedTenant generatedTenant;
 	public List<TenantTrait> Traits { get { return generatedTenant.traits; } }
@@ -24,6 +29,8 @@ public class Tenant : MonoBehaviour
 		_tenantEvaluator = FindObjectOfType<TenantEvaluator>();
 		_tenantEvaluator.Add(this);
 		_navigationAgent = GetComponent<NavigationAgent>();
+		this.transform.localScale = Vector3.zero;
+		this.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
 	}
 
 	private void OnDestroy()

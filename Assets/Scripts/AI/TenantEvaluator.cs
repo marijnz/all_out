@@ -69,8 +69,30 @@ public class TenantEvaluator : MonoBehaviour
 
 					first.StopMoving();
 					second.StopMoving();
-					Emotion.Show(first.transform, !first.Traits.Any(traitOfFirst => second.Traits.Any(traitOfSecond => traitOfFirst.dislikes.Contains(traitOfSecond.id))));
-					Emotion.Show(second.transform, !first.Traits.Any(traitOfFirst => second.Traits.Any(traitOfSecond => traitOfSecond.dislikes.Contains(traitOfFirst.id))));
+					var firstIsHappy = !first.Traits.Any(traitOfFirst =>
+										second.Traits.Any(traitOfSecond =>
+										traitOfFirst.dislikes.Contains(traitOfSecond.id)));
+
+					Emotion.Show(first.transform, firstIsHappy);
+
+					var secondIsHappy = !first.Traits.Any(traitOfFirst =>
+										second.Traits.Any(traitOfSecond =>
+										traitOfSecond.dislikes.Contains(traitOfFirst.id)));
+
+					Emotion.Show(second.transform, secondIsHappy);
+
+					first.happiness += firstIsHappy ? 1 : -1;
+					second.happiness += secondIsHappy ? 1 : -1;
+
+					List<Tenant> unhappyTenants = new List<Tenant>();
+					if(first.happiness <= 0) unhappyTenants.Add(first);
+					if(second.happiness <= 0) unhappyTenants.Add(second);
+
+					if(unhappyTenants.Count > 0)
+					{
+						FindObjectOfType<Setup>().RequestNewTenants(unhappyTenants);
+					}
+
 					_checkedTenants.Add(new CheckedTenants(first, second, tick));
 				}
 			}
