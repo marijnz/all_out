@@ -22,12 +22,12 @@ public class Setup : MonoBehaviour
     {
 	    FindObjectOfType<SimulateTickRate>().Pause();
 
-	    yield return new WaitForSeconds(4f); // wait for emotions to be hidden, kinda
+	    yield return new WaitForSeconds(2f); // wait for emotions to be hidden, kinda
 	    DoBlur(true);
 	    foreach (var unhappyTenant in unhappyTenants)
 	    {
 		    yield return TenantLeaves.Show(unhappyTenant, unhappyTenant.lastFrustration);
-		    Destroy(unhappyTenant.gameObject, 1f);
+		    Destroy(unhappyTenant.gameObject, 2f);
 	    }
 
 	    StartCoroutine(PickTenants(unhappyTenants.Count));
