@@ -88,11 +88,11 @@ public class TenantEvaluator : MonoBehaviour
 					first.happiness += firstIsHappy ? 1 : -1;
 					second.happiness += secondIsHappy ? 1 : -1;
 
-					if(firstIsHappy && secondIsHappy)
+					if (firstIsHappy && secondIsHappy)
 					{
 						AudioPlayer.Play("meetLikeLike");
 					}
-					else if(!firstIsHappy && !secondIsHappy)
+					else if (!firstIsHappy && !secondIsHappy)
 					{
 						AudioPlayer.Play("meetHateHate");
 					}
@@ -129,7 +129,7 @@ public class TenantEvaluator : MonoBehaviour
 			}
 		}
 
-		if (_allTenants.Count > 1 && totallyHappinessCount >= (_allTenants.Count * (_allTenants.Count - 1) * 0.5f))
+		if (_allTenants.Count >= 3 && totallyHappinessCount >= (_allTenants.Count * (_allTenants.Count - 1) * 0.5f))
 		{
 			Debug.LogFormat("Happiness: {0} // Tenants: {1}", totallyHappinessCount, _allTenants.Count);
 			// TODO: for Marijn, add visually feedback
