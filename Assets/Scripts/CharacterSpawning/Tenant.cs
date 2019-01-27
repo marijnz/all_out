@@ -14,13 +14,14 @@ public class Tenant : MonoBehaviour
 
 	public int happiness = startHappiness;
 
-	GeneratedTenant generatedTenant;
+	public GeneratedTenant generatedTenant;
 	public List<TenantTrait> Traits { get { return generatedTenant.traits; } }
 
 	Vector3 lastPos;
 
 	private TenantEvaluator _tenantEvaluator = null;
 	private NavigationAgent _navigationAgent = null;
+	public Tenant lastFrustration;
 
 	public bool IsMoving { get { return _navigationAgent.IsMoving; } }
 
@@ -64,7 +65,5 @@ public class Tenant : MonoBehaviour
 		}
 
 		lastPos = transform.position;
-
-		spriteRenderer.sortingOrder = (int) Mathf.Abs(100 - transform.position.y) * 1000;
 	}
 }
