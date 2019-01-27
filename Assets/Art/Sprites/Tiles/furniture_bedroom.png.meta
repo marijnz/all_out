@@ -1,7 +1,29 @@
 fileFormatVersion: 2
 guid: cb23412b13f08481994f422b810bba45
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: furniture_bedroom_0
+    21300002: furniture_bedroom_1
+    21300004: furniture_bedroom_2
+    21300006: furniture_bedroom_3
+    21300008: furniture_bedroom_4
+    21300010: furniture_bedroom_5
+    21300012: furniture_bedroom_6
+    21300014: furniture_bedroom_7
+    21300016: furniture_bedroom_8
+    21300018: furniture_bedroom_9
+    21300020: furniture_bedroom_10
+    21300022: furniture_bedroom_11
+    21300024: furniture_bedroom_12
+    21300026: furniture_bedroom_13
+    21300028: furniture_bedroom_14
+    21300030: furniture_bedroom_15
+    21300032: furniture_bedroom_16
+    21300034: furniture_bedroom_17
+    21300036: furniture_bedroom_18
+    21300038: furniture_bedroom_19
+    21300040: furniture_bedroom_20
+    21300042: furniture_bedroom_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,12 +62,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 320
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,9 +91,460 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: furniture_bedroom_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 2217
+        width: 483
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2869f8f163c587458dddf5bbb16c574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_1
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 2217
+        width: 483
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b938b47d29f049e4194a0122bb9205cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_2
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 2217
+        width: 483
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5a20d641809114f952edcbb17aa673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_3
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 2217
+        width: 483
+        height: 342
+      alignment: 9
+      pivot: {x: 0.6846916, y: 0.055035863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ead52e07e34a24ea18ce401aad6d34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_4
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1737
+        width: 483
+        height: 352
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a513f8713d5c1a4b962ee3739cbfb30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_5
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1738
+        width: 483
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d0f8222cbc73545b61deda3be35f78
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_6
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 1738
+        width: 483
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a14cbe625d4239478febd541d5066ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_7
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 1737
+        width: 483
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3ff214874b28744b86bf742530abff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1258
+        width: 483
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff05805d9685af646bbf1f865e81ff14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_9
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1258
+        width: 483
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46b0da134cf74343bf080ff25da8597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_10
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 1258
+        width: 483
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e924919a070886d438c430a61b256ccf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_11
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 1258
+        width: 483
+        height: 341
+      alignment: 9
+      pivot: {x: 0.70642066, y: 0.022954946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169b77423dcb11c44b6d38037cc0ab81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_12
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 897
+        width: 244
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5982abf6be9604b80a6e5616e1aadc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_13
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 899
+        width: 242
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c7b7729c074594e8ae0abb5b8216ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_14
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 856
+        width: 245
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed4e46544b8d304e8180a070528838b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_15
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 859
+        width: 244
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d36cbfb9af75641839f3199b5dfe36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_16
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 926
+        width: 76
+        height: 170
+      alignment: 9
+      pivot: {x: 0.49999678, y: 0.0061200312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f40d05cbf49da498d36bb276cefc10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_17
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 958
+        width: 118
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47525db876c8c464fbc267b1392c1848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_18
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 78
+        width: 443
+        height: 706
+      alignment: 9
+      pivot: {x: 0.35785657, y: 0.024309002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef75972cdea89e046bd4c888e608e237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_19
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 78
+        width: 445
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38c39eadb1f9c4419fa51b80c44fdcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_20
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 57
+        width: 443
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309cdeba211b9f840ac41721959b23e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: furniture_bedroom_21
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 59
+        width: 443
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb415c4af6d0b5478da0f4e10956d76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

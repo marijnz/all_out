@@ -1,20 +1,26 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public sealed class FastForwardButton : MonoBehaviour, IPointerClickHandler
+{
+	private SimulateTickRate _simulationTickRate = null;
+	[SerializeField] private TMP_Text _label = null;
+
+	private void Start()
 	{
-		private SimulateTickRate _simulationTickRate = null;
-		[SerializeField] private TMP_Text _label = null;
+		_simulationTickRate = FindObjectOfType<SimulateTickRate>();
+		_simulationTickRate.OnTimeChanged += OnTimeChanged;
+	}
 
-		private void Start()
-		{
-			_simulationTickRate = FindObjectOfType<SimulateTickRate>();
-		}
+	private void OnTimeChanged(int time)
+	{
+		_label.text = string.Format("{0}x", time);
+	}
 
-		public void OnPointerClick(PointerEventData eventData)
-		{
-			_label.text = string.Format("{0}x",
-				_simulationTickRate.IncreaseTimeMultiplier());
-			}
-		}
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		_simulationTickRate.IncreaseTimeMultiplier();
+	}
+}

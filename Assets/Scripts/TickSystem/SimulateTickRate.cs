@@ -2,12 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable]
-public sealed class IntEvent : UnityEvent<int> { }
+[Serializable] public sealed class IntEvent : UnityEvent<int> { }
+public delegate void IntHandler(int i);
 
 public sealed class SimulateTickRate : MonoBehaviour
 {
-	public bool paused;
+	public event IntHandler OnTimeChanged;
+
+	private bool _paused = false;
 	[SerializeField] private int _ticksPerSecond = 60;
 	[SerializeField] private IntEvent _onTickUpdate = null;
 	public IntEvent OnTickUpdate { get { return _onTickUpdate; } }
@@ -20,7 +22,7 @@ public sealed class SimulateTickRate : MonoBehaviour
 
 	private void Update()
 	{
-		if (paused) return;
+		if (_paused) return;
 
 		_actualTicks += _ticksPerSecond * Time.deltaTime;
 		int ticks = (int) _actualTicks;
@@ -37,13 +39,37 @@ public sealed class SimulateTickRate : MonoBehaviour
 		}
 	}
 
-	public int IncreaseTimeMultiplier()
+	public void IncreaseTimeMultiplier()
 	{
-		if (_timeMultiplier == null || _timeMultiplier.Length == 0) return (int)Time.timeScale;
+		if (_timeMultiplier == null || _timeMultiplier.Length == 0) return;
 
 		_actualMultiplierIndex = ++_actualMultiplierIndex % _timeMultiplier.Length;
-		Time.timeScale = _timeMultiplier[_actualMultiplierIndex];
+		SetTime(_timeMultiplier[_actualMultiplierIndex]);
+	}
 
-		return _timeMultiplier[_actualMultiplierIndex];
+	private void SetTime(int time)
+	{
+		Time.timeScale = time;
+
+		OnTimeChanged?.Invoke(time);
+	}
+
+	public void Pause()
+	{
+		if (_paused) return;
+
+		_paused = true;
+
+		_actualMultiplierIndex = 0;
+		if ((_timeMultiplier == null || _timeMultiplier.Length == 0))
+			SetTime(1);
+		else
+			SetTime(_timeMultiplier[_actualMultiplierIndex]);
+	}
+
+	public void Unpause()
+	{
+		if (!_paused) return;
+		_paused = false;
 	}
 }
