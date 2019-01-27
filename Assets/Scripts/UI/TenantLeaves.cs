@@ -60,7 +60,6 @@ public class TenantLeaves : MonoBehaviour
         foreach (Transform t in tenantImagesContainer.transform)
         {
             var isTenant = tenant.generatedTenant.dataId == index;
-            isTenant = true; // todo remove when added more animals
             t.gameObject.SetActive(isTenant);
             index++;
         }
