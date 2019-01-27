@@ -966,7 +966,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.5334563, y: 1.6526182, z: 0}
+  m_ChunkCullingBounds: {x: 0.5334563, y: 1.6569669, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -5838,10 +5838,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1486678215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 185eb06a0cbda466d894a777b25be7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 59df18679480e48489f6fa334d1df245, type: 2}
+  postprocessMaterial: {fileID: 2100000, guid: d2a3acfe2f8bb439d90827d5a2031c65, type: 2}
 --- !u!20 &1486678217
 Camera:
   m_ObjectHideFlags: 0
@@ -6399,6 +6399,7 @@ MonoBehaviour:
   _allTenants: []
   _evaluationDistance: 1
   _ticksToSleepForACouple: 500
+  _maximumNumberOfChecks: 100
 --- !u!4 &2085587482
 Transform:
   m_ObjectHideFlags: 0

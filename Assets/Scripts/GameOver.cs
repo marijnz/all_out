@@ -6,8 +6,13 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
+    static bool isShowing = false;
+
     public static void Show()
     {
+        if(isShowing) return;
+
+        isShowing = true;
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
     }
 
@@ -22,6 +27,7 @@ public class GameOver : MonoBehaviour
         button.onClick.AddListener(() =>
         {
             SceneManager.LoadScene("Start");
+            isShowing = false;
         });
     }
 }
