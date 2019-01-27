@@ -59,6 +59,7 @@ public class Navigation : MonoBehaviour
 				{
 					beginCell = result.pos;
 					found = true;
+					break;
 				}
 			}
 			if(!found)

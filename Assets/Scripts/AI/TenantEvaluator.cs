@@ -88,6 +88,19 @@ public class TenantEvaluator : MonoBehaviour
 					first.happiness += firstIsHappy ? 1 : -1;
 					second.happiness += secondIsHappy ? 1 : -1;
 
+					if(firstIsHappy && secondIsHappy)
+					{
+						AudioPlayer.Play("meetLikeLike");
+					}
+					else if(!firstIsHappy && !secondIsHappy)
+					{
+						AudioPlayer.Play("meetHateHate");
+					}
+					else
+					{
+						AudioPlayer.Play("meetLikeHate");
+					}
+
 					List<Tenant> unhappyTenants = new List<Tenant>();
 					if (first.happiness <= 0)
 					{
