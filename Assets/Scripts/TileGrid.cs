@@ -5,5 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class TileGrid : MonoBehaviour
 {
-    public Tilemap floorTileMap;
+    public Tilemap walkableTileMap;
+    public Tilemap nonWalkableTileMap;
 }

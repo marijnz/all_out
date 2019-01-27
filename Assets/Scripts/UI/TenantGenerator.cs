@@ -16,7 +16,7 @@ public class TenantGenerator : MonoBehaviour
 				randomTrait = tenantGeneration.traits.Random();
 				// Continue if we have the trait already, or the trait that we have has the selected random one as a dislike
 				// (avoid weird combos)
-			} while (!tenant.traits.Contains(randomTrait) && tenant.traits.Any(t => t.dislikes.Contains(randomTrait.id)));
+			} while (tenant.traits.Contains(randomTrait) || tenant.traits.Any(t => t.dislikes.Contains(randomTrait.id)));
 
 			tenant.traits.Add(randomTrait);
 		}

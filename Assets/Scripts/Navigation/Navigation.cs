@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 /// <summary>
@@ -19,8 +20,6 @@ public class Navigation : MonoBehaviour
 		public float h = -1;
 	}
 
-	public Tilemap tileMap;
-
 	public Transform fromTransform;
 	public Transform toTransform;
 
@@ -31,6 +30,8 @@ public class Navigation : MonoBehaviour
 
 	List<Node> tempNeighbours = new List<Node>();
 
+	TileGrid tileGrid;
+
 	[ContextMenu("Do nav")]
 	void DoNavigation()
 	{
@@ -39,14 +40,38 @@ public class Navigation : MonoBehaviour
 
 	public List<Vector3> GetPath(Vector3 from, Vector3 to)
 	{
+		tileGrid = FindObjectOfType<TileGrid>();
 		open.Clear();
 		nodes.Clear();
 
-		var beginCell = tileMap.WorldToCell(from);
-		var endCell = tileMap.WorldToCell(to);
+		var beginCell = tileGrid.walkableTileMap.WorldToCell(from);
+		var endCell = tileGrid.walkableTileMap.WorldToCell(to);
 
-		if(tileMap.GetTile(beginCell) == null) return null;
-		if(tileMap.GetTile(endCell) == null) return null;
+		if(tileGrid.walkableTileMap.GetTile(beginCell) == null)
+		{
+			// Sometimes the from tile is null, so look for neighbours and do it hacky
+			List<Node> results = new List<Node>();
+			GetNeighbours(beginCell, ref results);
+			bool found = false;
+			foreach (var result in results)
+			{
+				if(result != null)
+				{
+					beginCell = result.pos;
+					found = true;
+				}
+			}
+			if(!found)
+			{
+				Debug.LogWarning("Begin is not on tile and couldn't find neighbor that is! " + from);
+				return null;
+			}
+		}
+		if(tileGrid.walkableTileMap.GetTile(endCell) == null)
+		{
+			Debug.LogWarning("End is not on tile: " + to);
+			return null;
+		}
 
 		start = GetNode(beginCell);
 		end = GetNode(endCell);
@@ -54,7 +79,7 @@ public class Navigation : MonoBehaviour
 		AstarSearch(start);
 
 		var path = new List<Vector3>();
-		path.Add(tileMap.CellToWorld(end.pos));
+		path.Add(tileGrid.walkableTileMap.CellToWorld(end.pos));
 		BuildShortestPath(path, end);
 		path.RemoveAt(path.Count - 1); // remove first cell
 		path.Reverse();
@@ -69,7 +94,7 @@ public class Navigation : MonoBehaviour
 		{
 			if (node.nearestToStart == null) return;
 
-			list.Add(tileMap.CellToWorld(node.nearestToStart.pos));
+			list.Add(tileGrid.walkableTileMap.CellToWorld(node.nearestToStart.pos));
 			node = node.nearestToStart;
 		}
 		if(maxLoops <= 0) Debug.LogError("Hit max in building the shortest path in A*");
@@ -132,15 +157,12 @@ public class Navigation : MonoBehaviour
 		result.Add(GetNode(pos + Vector3Int.down));
 		result.Add(GetNode(pos + Vector3Int.up));
 		result.Add(GetNode(pos + Vector3Int.left));
-		result.Add(GetNode(pos + new Vector3Int(1,-1, 0)));
-		result.Add(GetNode(pos + new Vector3Int(-1,-1, 0)));
-		result.Add(GetNode(pos + new Vector3Int(-1,1, 0)));
-		result.Add(GetNode(pos + new Vector3Int(1,1, 0)));
 	}
 
 	Node GetNode(Vector3Int pos)
 	{
-		if(!TileExists(pos)) return null;
+		if(tileGrid.walkableTileMap.GetTile(pos) == null) return null;
+		if(tileGrid.nonWalkableTileMap.GetTile(pos) != null) return null;
 
 		Node node;
 		if(!nodes.TryGetValue(pos, out node))
@@ -152,11 +174,6 @@ public class Navigation : MonoBehaviour
 			nodes[pos] = node;
 		}
 		return node;
-	}
-
-	bool TileExists(Vector3Int pos)
-	{
-		return tileMap.GetTile(pos) != null;
 	}
 }
 
