@@ -45,8 +45,13 @@ public class TenantLeaves : MonoBehaviour
 
     void Start()
     {
+        fullscreenClick.enabled = false;
+
         container.alpha = 0;
-        container.DOFade(1, .3f);
+        container.DOFade(1, .3f).onComplete = () =>
+        {
+            fullscreenClick.enabled = true;
+        };
 
         var text = tenantLeavingSentences.texts.Random();
         text = text.Replace("OTHERANIMAL", otherTenant.generatedTenant.data.animalName.ToLower());
@@ -67,13 +72,5 @@ public class TenantLeaves : MonoBehaviour
             fullscreenClick.enabled = false;
         });
 
-        fullscreenClick.enabled = false;
-        StartCoroutine(EnableClickingAway());
-    }
-
-    IEnumerator EnableClickingAway()
-    {
-        yield return new WaitForSeconds(.5f);
-        fullscreenClick.enabled = true;
     }
 }
