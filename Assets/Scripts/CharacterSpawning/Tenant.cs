@@ -64,5 +64,7 @@ public class Tenant : MonoBehaviour
 		}
 
 		lastPos = transform.position;
+
+		spriteRenderer.sortingOrder = (int) Mathf.Abs(100 - transform.position.y) * 1000;
 	}
 }

@@ -5,6 +5,8 @@ using System;
 
 public class CharacterSpawnManager : MonoBehaviour
 {
+    public GameObject tenantsContainer;
+
     public Tenant tenantPrefab;
 
     public List<Transform> spawnPoints;         // An array of the spawn points this enemy can spawn from.
@@ -32,6 +34,7 @@ public class CharacterSpawnManager : MonoBehaviour
 
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
             var instance = Instantiate(tenantPrefab, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            instance.transform.SetParent(tenantsContainer.transform, worldPositionStays:true);
             instance.spriteRenderer.sprite = character.data.image;
             instance.directionSprites = character.data.directionImages;
             instance.SetData(character);
