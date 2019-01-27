@@ -15,47 +15,47 @@ MonoBehaviour:
   traits:
   - id: 0
     name: Nocturnal
-    dislikes: 01000000
+    dislikes: 010000000e000000
   - id: 1
     name: Sleeps at night
-    dislikes: 00000000
+    dislikes: 000000000e000000
   - id: 2
     name: Extrovert
-    dislikes: 03000000
+    dislikes: 03000000040000000e000000
   - id: 3
     name: Introvert
-    dislikes: 02000000
+    dislikes: 020000000e000000
   - id: 4
     name: Quiet
-    dislikes: 0500000002000000
+    dislikes: 05000000020000000e00000006000000
   - id: 5
     name: Likes loud music
-    dislikes: 0400000003000000
+    dislikes: 04000000030000000e000000
   - id: 6
     name: Loves to party
-    dislikes: 04000000
+    dislikes: 04000000030000000e000000
   - id: 7
     name: Carnivore
-    dislikes: 08000000
+    dislikes: 080000000e000000
   - id: 8
     name: Vegetarian
-    dislikes: 07000000
+    dislikes: 070000000e000000
   - id: 9
     name: Workaholic
-    dislikes: 0a00000005000000
+    dislikes: 0a000000050000000e000000
   - id: 10
     name: Couch Potato
-    dislikes: 09000000
+    dislikes: 090000000e000000
   - id: 11
     name: Super tolerant
     dislikes: 
   - id: 12
-    name: Messy
-    dislikes: 0d000000
+    name: Makes a mess
+    dislikes: 0d0000000e000000
   - id: 13
-    name: Clean
-    dislikes: 0c000000
-  - id: 13
+    name: Always cleans
+    dislikes: 0c000000060000000e000000
+  - id: 14
     name: Takes long showers
     dislikes: 
   names:

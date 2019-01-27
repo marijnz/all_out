@@ -20,7 +20,7 @@ public class Setup : MonoBehaviour
 
     IEnumerator DoRequestNewTenants(List<Tenant> unhappyTenants)
     {
-	    FindObjectOfType<SimulateTickRate>().paused = true;
+	    FindObjectOfType<SimulateTickRate>().Pause();
 
 	    yield return new WaitForSeconds(4f); // wait for emotions to be hidden, kinda
 	    DoBlur(true);
@@ -41,7 +41,7 @@ public class Setup : MonoBehaviour
 		    yield return SceneManager.LoadSceneAsync("TestRooms1", LoadSceneMode.Additive);
 	    }
 
-	    FindObjectOfType<SimulateTickRate>().paused = false;
+	    FindObjectOfType<SimulateTickRate>().Unpause();
 	    DoBlur(false);
 	    FindObjectOfType<CharacterSpawnManager>().Spawn(PickTenantRoot.results);
     }

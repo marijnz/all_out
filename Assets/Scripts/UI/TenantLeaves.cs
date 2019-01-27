@@ -33,10 +33,9 @@ public class TenantLeaves : MonoBehaviour
         isDone = false;
     }
 
-    IEnumerator CloseScene()
+    void CloseScene()
     {
-        yield return new WaitForSeconds(.3f);
-        container.DOFade(0, .3f).OnComplete(() =>
+        container.DOFade(0, .25f).OnComplete(() =>
         {
             SceneManager.UnloadSceneAsync(sceneName);
             isDone = true;
@@ -48,7 +47,7 @@ public class TenantLeaves : MonoBehaviour
         fullscreenClick.enabled = false;
 
         container.alpha = 0;
-        container.DOFade(1, .3f).onComplete = () =>
+        container.DOFade(1, .25f).onComplete = () =>
         {
             fullscreenClick.enabled = true;
         };
@@ -68,7 +67,7 @@ public class TenantLeaves : MonoBehaviour
 
         fullscreenClick.onClick.AddListener(() =>
         {
-            StartCoroutine(CloseScene());
+            CloseScene();
             fullscreenClick.enabled = false;
         });
 
