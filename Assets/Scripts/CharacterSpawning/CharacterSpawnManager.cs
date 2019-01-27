@@ -44,7 +44,8 @@ public class CharacterSpawnManager : MonoBehaviour
             {
                 spawnPoints.AddRange(spawnPointsCopy);
             }
-            yield return new WaitForSeconds(.5f);
+            AudioPlayer.Play(UnityEngine.Random.value > .5f ? "spawnPop1" : "spawnPop2");
+            yield return new WaitForSeconds(.35f);
         }
     }
 }
