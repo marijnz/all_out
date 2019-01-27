@@ -7,6 +7,11 @@ public class PostprocessingBlur : MonoBehaviour {
 
     //method which is automatically called by unity after the camera is done rendering
     void OnRenderImage(RenderTexture source, RenderTexture destination){
+        if(Mathf.Approximately(postprocessMaterial.GetFloat("_BlurSize"), 0))
+        {
+            Graphics.Blit(source, destination);
+            return;
+        }
         //draws the pixels from the source texture to the destination texture
         var temporaryTexture = RenderTexture.GetTemporary(source.width, source.height);
         Graphics.Blit(source, temporaryTexture, postprocessMaterial, 0);
